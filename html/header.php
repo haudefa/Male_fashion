@@ -24,14 +24,14 @@ session_start();
     <link rel="stylesheet" href="../style/responsive.css">
     <link rel="stylesheet" href="../style/style_femme.css">
     <link rel="stylesheet" href="../style/kid_style.css">
-    <title>Document</title>
+    <title>Male Fashion - Home</title>
 </head>
 <body>
     <section id="header">
         <a href="#"><img src="../images/footer-logo.png" class="logo" alt=""></a>
         <div>
             <ul id="navbar">
-                <li> <a class="active" href="index.php">Accueil</a></li>
+                <li> <a href="index.php">Accueil</a></li>
                 <li> <a href="Homme.php">Homme</a></li>
                 <li> <a href="Femme.php">Femme</a></li>
                 <li> <a href="Enfants.php">Enfants</a></li>
@@ -42,21 +42,18 @@ session_start();
             <?php }?>
             <?php if (!empty($_SESSION)) { ?>
                 <li><a  href="logout.php">Déconnexion</a></li>
-            <?php } ?>
-                <li id="lg-bag"> <a href="cart.html"><i class='bx bx-cart'></i></a></li>
-                <li><a href="#" id="close"><i class='bx bx-arrow-back' ></i></a> </li>   
+            <?php } ?>  
                  
-                <!-- panier  -->
-                <!-- <div class="shop">
+                <!-- bouton panier-->
+                <div class="shop">
                     <a href="panier.php" class="link"><button class="btn btn-light mb" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                    
+                                <?=array_sum($_SESSION['panier'])?>
                             </span></span></span>
                         </button></a>
-                </div> -->
-                <!-- panier  -->
+                </div>
 
             </ul>
         </div>

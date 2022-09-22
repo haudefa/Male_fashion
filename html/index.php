@@ -48,79 +48,52 @@ include 'header.php';
 
     </section>
 
-    <!--products box  1-->
+     <!--products box  1-->
     <section id="products" class="section-p1">
         <h2>Produits Populaires</h2>
         <p>Nouvelle collection</p>
-        <div class="pro-container">
+
+        <?php 
+    //inclure la page de connexion
+    include_once "connexion.php";
+    $req = mysqli_query($con, "SELECT * FROM clothes");
+    ?> 
+    <div class="pro-container"><?php 
+    while($row = mysqli_fetch_assoc($req)){
+    ?>
+        
             <div class="pro">
-                <img src="../images/about/team-3.jpg" alt="">
+                <img src="/images/product/product-img/<?=$row['image']?>" alt="">
                 <div class="des">
-                    <span>Adidas</span>
-                    <h5>cartoon astronaut</h5>
+                    <span>
+                        <?=$row['description']?>
+                    </span>
+                    <h5>
+                        <?=$row['name']?>
+                    </h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
-                        <h4>€47</h4>
+                        <h4>
+                            <?=$row['price']?>€
+                        </h4>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-sm"
+                                    href="ajouter_panier.php?id=<?=$row['id']?>">Ajouter au
+                                    panier</a></div>
+                        </div>
                     </div>
-
                 </div>
-                <i class='bx bx-cart cart'></i>
             </div>
-            <div class="pro">
-                <img src="../images/product/f14.jpg" alt="">
-                <div class="des">
-                    <span>Adidas</span>
-                    <h5>cartoon astronaut</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <h4>€47</h4>
-                    </div>
+            <?php } ?>
 
-                </div>
-                <i class='bx bx-cart cart'></i>
-            </div>
-            <div class="pro">
-                <img src="../images/product/fille/k2.png" alt="">
-                <div class="des">
-                    <span>Adidas</span>
-                    <h5>cartoon astronaut</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <h4>€47</h4>
-                    </div>
 
-                </div>
-                <i class='bx bx-cart cart'></i>
-            </div>
-            <div class="pro">
-                <img src="../images/about/team-1.jpg" alt="">
-                <div class="des">
-                    <span>Adidas</span>
-                    <h5>cartoon astronaut</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <h4>€47</h4>
-                    </div>
 
-                </div>
-                <i class='bx bx-cart cart'></i>
-            </div>
+            
+
             <div class="pro">
                 <img src="../images/banner/banner-2.jpg" alt="">
                 <div class="des">
@@ -132,12 +105,14 @@ include 'header.php';
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
-                        <h4>€47</h4>
+                        <h4>2.99€</h4>
                     </div>
 
                 </div>
                 <i class='bx bx-cart cart'></i>
             </div>
+
+
             <div class="pro">
                 <img src="../images/about/team-4.jpg" alt="">
                 <div class="des">
@@ -149,12 +124,14 @@ include 'header.php';
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
-                        <h4>€47</h4>
+                        <h4>9.99€</h4>
                     </div>
 
                 </div>
                 <i class='bx bx-cart cart'></i>
             </div>
+
+
             <div class="pro">
                 <img src="../images/about/team-3.jpg" alt="">
                 <div class="des">
@@ -166,12 +143,15 @@ include 'header.php';
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
-                        <h4>€47</h4>
+                        <h4>9.99€</h4>
                     </div>
 
                 </div>
                 <i class='bx bx-cart cart'></i>
             </div>
+
+
+            
             <div class="pro">
                 <img src="../images/about/team-2.jpg" alt="">
                 <div class="des">
@@ -287,22 +267,9 @@ include 'header.php';
                 </div>
                 <i class='bx bx-cart cart'></i>
             </div>
-            <div class="pro">
-                <img src="../images/about/team-1.jpg" alt="">
-                <div class="des">
-                    <span>Adidas</span>
-                    <h5>cartoon astronaut</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <h4>€47</h4>
-                    </div>
-                </div>
-                <i class='bx bx-cart cart'></i>
-            </div>
+
+
+
             <div class="pro">
                 <img src="../images/about/team-3.jpg" alt="">
                 <div class="des">
@@ -330,13 +297,18 @@ include 'header.php';
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
-                        <h4>€47</h4>
+                        <h4>9.99€</h4>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-sm" href="#">Ajouter au
+                                    panier</a></div>
                     </div>
                 </div>
-                <i class='bx bx-cart cart'></i>
+                
             </div>
         </div>
     </section>
+
+
 
     <!-- newsletter- -->
     <section id="newsletter" class="section-p1 ">

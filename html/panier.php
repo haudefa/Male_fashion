@@ -6,7 +6,6 @@
    //si la variable del existe
    if(isset($_GET['del'])){
     $id_del = $_GET['del'] ;
-    var_dump($id_del);
     //suppression
     unset($_SESSION['panier'][$id_del]);
    }
@@ -17,11 +16,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
+    <title>Votre Panier</title>
+    <!-- icons lien-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- icons lien-->
+
+    <!-- CSS lien-->
+    <link rel="stylesheet" href="/style/stylepanier.css">
+    <!-- CSS lien-->
+
+    <!-- CSS Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap lien-->
     <link rel="stylesheet" href="/html/stylepanier.css">
+
 </head>
-<body class="panier">
-    <a href="./index.php" class="link">Retournez sur la boutique</a>
+
+
+
+
+<body>
+
+
+<section id="header">
+<a href="#"><img src="../images/footer-logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+            <li> <a class="active" href="index.php">Accueil</a></li>
+                <li> <a href="Homme.php">Homme</a></li>
+                <li> <a href="Femme.php">Femme</a></li>
+                <li> <a href="Enfants.php">Enfants</a></li>
+                <li> <a href="Contact.php">Contact</a></li>
+        </div>
+        <div id="mobile">
+            <a href="panier.php"><i class='bx bx-cart'></i></a>
+            <i id="bar" class='bx bx-menu'></i>
+        </div>
+    </section>
+   <div class="bouton-panier">
+    <a href="index.php" class="link">Retournez sur la boutique</a>
+</div>
+
+
+<div class="panier">
+
+
     <section>
         <table>
             <tr>
@@ -50,23 +92,24 @@
                     $total = $total + $product['price'] * $_SESSION['panier'][$product['id']] ;
                 ?>
                 <tr>
-                    <td><img class="product-img" src="../images/asset/<?=$product['image']?>"></td>
+                    <td><img class="product-img" src="/images/product/product-img/<?=$product['image']?>"></td>
                     <td><?=$product['name']?></td>
                     <td><?=$product['price']?>€</td>
                     <td><?=$_SESSION['panier'][$product['id']] // Quantité?></td>
-                    <td><a href="panier.php?del=<?=$product['id']?>"><img class="delete-img" src="delete200px.png"></a></td>
+                    <td><a href="panier.php?del=<?=$product['id']?>"><img class="delete-img" src="/images/delete200px.png"></a></td>
                 </tr>
 
             <?php endforeach ;} ?>
 
             <tr class="total">
-                <th>Total : <?=$total?>€</th>
+                <th id="total-price">Total : <?=$total?>€</th>
             </tr>
+
         </table>
     </section>
     
 
     
-
+</div>
 </body>
 </html>
