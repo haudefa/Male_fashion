@@ -695,3 +695,46 @@
                                 font-size: 1px;
                             }
                         }
+                        /* le hover sur le bouton d'achat */
+.btn-sm {
+    margin-top: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    background: #c8e2e6;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .btn-sm:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #82bed6;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .btn-sm:hover, .btn-sm:focus, .btn-sm:active {
+    color: rgb(14, 10, 10);
+  }
+  .btn-sm:hover:before, .btn-sm:focus:before, .btn-sm:active:before {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+  /* fin du hover*/
