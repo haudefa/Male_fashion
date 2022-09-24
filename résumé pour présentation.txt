@@ -1,0 +1,19 @@
+Présenter le cdc, la maquette, les techno utilisé
+Parler des persona et user stories (un persona avec enfant)
+
+présentation du site comme un user lambda
+
+faire 2-3 achats à mettre dans le panier
+(valider achats si possible)
+
+
+Montrer model et inscription
+
+Montrer la fonctionnalité du site entier
+
+
+Se partager equitablement la durée de la présentation
+
+
+PowerPoint: minimun de texte
+Faire un résumé des user story catégorie, service, client
