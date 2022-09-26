@@ -108,7 +108,7 @@
 	padding-left: 30px;
 }
 
-  .link {
+  .link1 {
 	text-decoration:none;
 	font-family: arial;
 	color: #FFFFFF !important;
@@ -118,7 +118,7 @@
 	background: #56AAC9;
   }
   
-  .link:hover {
+  .link1:hover {
 	color: #FFFFFF !important;
 	background: #468CCF;
 	background: linear-gradient(to top, #468CCF, #63B8EE);
@@ -179,3 +179,119 @@ tr {
 	padding: 15px;
 	font-size: 25px;
   }
+
+/************ bouton payez***********/
+  .bouton-achat{
+	display: flex;
+	justify-content: center;
+	padding-left: 30px;
+	padding-bottom: 150px;
+}
+
+  .link2 {
+	text-decoration:none;
+	font-family: arial;
+	color: #FFFFFF !important;
+	font-size: 18px;
+	padding: 10px 28px;
+	border-radius: 5px;
+	background: linear-gradient(to top, #658a79, #55b47a);
+  }
+  
+  .link2:hover {
+	color: #FFFFFF !important;
+	background: #468CCF;
+	background: linear-gradient(to top, #5ab68b, #30ac60);
+  }
+  
+ 
+  /************ Pour la page de paiement *****/
+
+
+.container_P {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+body_P {
+   background-color: #c7c7c7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 30px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+.card {
+	max-width: 500px;
+	margin: auto;
+	color: black;
+	border-radius: 20 px;
+}
+
+.container_P .h8 {
+	font-size: 30px;
+	font-weight: 800;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn.btn-primary {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+	background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+	border: none;
+	transition: 0.5s;
+	background-size: 200% auto;
+	font-size: 20px;
+
+}
+
+
+.btn.btn.btn-primary:hover {
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+
+.btn.btn-primary:hover .fas.fa-arrow-right {
+	transform: translate(15px);
+	transition: transform 0.2s ease-in;
+}
+
+.form-control {
+	color: rgb(73, 73, 73);
+	background-color: #d0ddec;
+	border: 2px solid transparent;
+	height: 60px;
+	padding-left: 20px;
+	vertical-align: middle;
+}
+
+.form-control:focus {
+	color: rgb(77, 75, 75);
+	background-color: #d0ddec;
+	border: 2px solid #677acfa4;
+	box-shadow: none;
+}
+
+.text {
+   font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+::placeholder {
+	font-size: 14px;
+	font-weight: 600;
+}
