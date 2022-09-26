@@ -1,36 +1,35 @@
 <?php
 include_once 'connexion.php';
 include 'header.php';
-
 // vérifire la conection 
 if ($con !== false); {
   // verifié si POST n'ai pas vide  
   if (isset($_POST)) {
+    // on récuper les donner utilisateur
     $lastname = $_POST['lastname'];
     $firstname = $_POST['firstname'];
     $mail = $_POST['mail'];
     $address = $_POST['address'];
     $phone_number = $_POST['phone_number'];
     
-    // requete pour selectionner  la colone mail 
+    // requete pour selectionner  la table user par mail  
     $result=mysqli_query($con,"SELECT * FROM users WHERE mail='".$mail."'");
      
     // récuperer le resulta 
     $result=$result->fetch_assoc();
- 
+    // si le mail existe dans la bb
     if($result !==null){
+      // on stock le mail et le numero dans la global GET 
       $_GET['mail']=$result['mail'];
       $_GET['phone_number']=$result['phone_number'];
     }   
-    // verifier si le mail est numéro de telephone ne sont pas deja dans la bdd
-    // vérifier si le password est déja utilisé ? 
-    $lenMinPass=strlen($_POST['password']);
-    
-  
-    
     
     if(empty($_GET)){
-        if($lenMinPass >= 12 ){
+    //  on compte le nombre de lettre dans le mot de passe
+      $lenMinPass=strlen($_POST['password']);
+      // verifier si le mots de passe est >= à 12 
+      if($lenMinPass >= 12 ){
+          // on crypte le mot de passe
           $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
    
         
@@ -45,47 +44,48 @@ if ($con !== false); {
     `password`
     )VALUES(?,?,?,?,?,?)"
     );
+    //1.on injecte le donner 
     mysqli_stmt_bind_param($query,'ssssss', $lastname, $firstname, $mail, $address, $phone_number, $password);
-        //1.recuperer les valeur utilisateur en les en les protégent 
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['firstname'];
-    $mail = $_POST['mail'];
-    $address = $_POST['address'];
-    $phone_number = $_POST['phone_number'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     // on execute la requete en injectent les donner utilisateur 
     $result = mysqli_stmt_execute($query);
-   
-
+    // on on créer une requete est on l'éxecute 
     $data=mysqli_query($con,"SELECT * FROM users WHERE mail='".$mail."'");
-     $data=$data->fetch_assoc();
+    // on recuper la table 
+    $data=$data->fetch_assoc();
     
-
     
-     if($data!==false){
+    // on verifi que la requete à fontioner  
+    if($data!==false){
+      // on le connete 
       $_SESSION['user_id']=$data['id'];
       $_SESSION['role']=$data['role'];
+      $_SESSION['panier'] =[ array()];
+      // on verifie si il est connecter 
       if(!empty($_SESSION)){
+        // on affiche un message que le ramenne sur la page d'aceuille
         echo"<div class='info1'>
-        <h2>l'inscription est un sucecce</h2>
-        <a href='index.php'>connecter vous</a>
-     </div>";
+        <h2>L'inscription est un succès</h2>
+        <a href='index.php' class='btn btn-light'>Connectez-vous ici</a>
+        </div>";
+        var_dump($_POST['password']);
+        var_dump($_POST);
       }
     }
   }else{
     echo"<div class='info1'>
-    <h3>le mots de passe est trop cours </h3>
+    <h3>Le mot de passe est trop court </h3>
     <button data-bs-toggle='modal' data-bs-target='#signupModal'>
-     S'inscrire    
+     S'inscrire  
+     </button>    
     </div>";
 }     
  }else{
   echo"<div class='info1'>
-  <h3>une ereur c'est produit pendant l'inscription</h3>
-  <p>le mail ou le numéro de téléphone est deja utilisé</p>
-  <p>veuiller recomancer l'inscription </p>
+  <h3>Une erreur c'est produit pendant l'inscription</h3>
+  <p>Le mail ou le mot de passe est deja utilisé</p>
+  <p>Veuillez recommencer l'inscription </p>
   <button data-bs-toggle='modal' data-bs-target='#signupModal'>
-  S'incrire
+  S'inscrire
   </button>     
   </div>";
 }
