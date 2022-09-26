@@ -1,7 +1,9 @@
 <?php 
-   session_start();
+   
    include_once "connexion.php";
-
+   include_once "header.php";
+   var_dump($_SESSION);
+   var_dump($total);
    //supprimer les produits
    //si la variable del existe
    if(isset($_GET['del'])){
@@ -10,54 +12,8 @@
     unset($_SESSION['panier'][$id_del]);
    }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votre Panier</title>
-    <!-- icons lien-->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <!-- icons lien-->
-
-    <!-- CSS lien-->
-    <link rel="stylesheet" href="/style/stylepanier.css">
-    <!-- CSS lien-->
-
-    <!-- CSS Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Bootstrap lien-->
-    <link rel="stylesheet" href="/html/stylepanier.css">
-
-</head>
-
-
-
-
-<body>
-
-
-<section id="header">
-<a href="#"><img src="../images/footer-logo.png" class="logo" alt=""></a>
-        <div>
-            <ul id="navbar">
-            <li> <a class="active" href="index.php">Accueil</a></li>
-                <li> <a href="Homme.php">Homme</a></li>
-                <li> <a href="Femme.php">Femme</a></li>
-                <li> <a href="Enfants.php">Enfants</a></li>
-                <li> <a href="Contact.php">Contact</a></li>
-        </div>
-        <div id="mobile">
-            <a href="panier.php"><i class='bx bx-cart'></i></a>
-            <i id="bar" class='bx bx-menu'></i>
-        </div>
-    </section>
    <div class="bouton-panier">
-    <a href="index.php" class="link">Retournez sur la boutique</a>
+    <a href="index.php" class="link1">Retournez sur la boutique</a>
 </div>
 
 
@@ -106,10 +62,17 @@
             </tr>
 
         </table>
+
+       <!-- le bouton payer -->
+        <div class="bouton-achat">
+        
+    <a href= <?php echo "paiement.php?total=$total"?> class="link2">Payez par carte bancaire</a>
+</div>
     </section>
     
-
-    
 </div>
+
+
+
 </body>
 </html>
